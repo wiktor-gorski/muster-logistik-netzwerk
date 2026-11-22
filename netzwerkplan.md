@@ -29,3 +29,21 @@ Die Abteilungen werden durch VLANs logisch getrennt.
 Der Router ermöglicht die Kommunikation zwischen den VLANs.
 Die Büro- und Lager-PCs erhalten ihre IP-Adressen per DHCP.
 Der Server verwendet eine feste IP-Adresse.
+
+
+## Netzwerkdiagramm
+
+```mermaid
+flowchart TD
+    R1["Router R1<br/>Cisco 2911"]
+    SW1["Switch SW1<br/>Cisco 2960"]
+
+    PC1["Büro-PC<br/>VLAN 10"]
+    PC2["Lager-PC<br/>VLAN 20"]
+    SRV["Server<br/>VLAN 30<br/>192.168.30.10"]
+
+    R1 ---|Trunk| SW1
+    SW1 --- PC1
+    SW1 --- PC2
+    SW1 --- SRV
+```
